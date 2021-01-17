@@ -1,0 +1,28 @@
+name: voxel_generator
+description: A voxel shape generator/viewer.
+author: "David Mougey <imapiekindaguy@gmail.com>"
+version: 0.1.0
+homepage: "https://github.com/ddmgy/voxel_generator"
+
+publish_to: 'none'
+
+environment:
+  sdk: ">=2.7.0 <3.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  provider: ^4.3.0
+  flutter_colorpicker: ^0.3.0
+  shared_preferences: ">=0.5.0 <2.0.0"
+  preferences_ui:
+    git:
+      url: "git://github.com/ddmgy/preferences_ui.git"
+      ref: "v0.5.1"
+  cupertino_icons: ^1.0.1
+
+dev_dependencies:
+  test: ^1.15.0
+
+flutter:
+  uses-material-design: true
