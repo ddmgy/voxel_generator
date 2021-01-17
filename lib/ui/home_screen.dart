@@ -293,7 +293,7 @@ class HomeScreen extends StatelessWidget {
     color: color,
     height: 24,
     width: 24,
-    duration: Duration(milliseconds: 250),
+    duration: kThemeChangeDuration,
   );
 
   void _showColorPickerDialog(

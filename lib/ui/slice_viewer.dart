@@ -34,8 +34,8 @@ class SliceViewer extends StatelessWidget {
                 colors: colors,
                 slice: slices[index],
               ),
-              willChange: false,
-              isComplex: true,
+              willChange: true,
+              isComplex: false,
             ),
           ),
         ),
@@ -102,5 +102,6 @@ class _SliceViewerPainter extends CustomPainter {
   }
 
   @override
-  bool shouldRepaint(_SliceViewerPainter oldDelegate) => colors != oldDelegate.colors;
+  bool shouldRepaint(_SliceViewerPainter oldDelegate) => colors != oldDelegate.colors
+    && slice != oldDelegate.slice;
 }

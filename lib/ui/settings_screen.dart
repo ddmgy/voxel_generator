@@ -41,6 +41,25 @@ class SettingsScreen extends StatelessWidget {
             ),
           ],
         ),
+        PreferenceGroup(
+          title: 'About',
+          children: [
+            Preference(
+              title: 'Version',
+              summary: '0.1.1',
+              onTap: () {},
+            ),
+            Preference(
+              title: 'Licenses',
+              onTap: () => showLicensePage(
+                context: context,
+                applicationName: 'Voxel Generator',
+                applicationVersion: '0.1.1',
+                applicationLegalese: '© 2021 David Mougey',
+              ),
+            ),
+          ],
+        ),
       ],
     ),
   );
