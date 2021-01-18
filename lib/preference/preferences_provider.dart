@@ -68,7 +68,7 @@ class PreferencesProvider extends ChangeNotifier {
     notifyListeners();
     _prefs.setShapeProperty(shapeType, property, value);
   }
-  
+
   BoxFit _fit = BoxFit.fitWidth;
   BoxFit get fit => _fit;
   set fit(BoxFit newValue) {
@@ -193,6 +193,7 @@ class PreferencesProvider extends ChangeNotifier {
         _shapeProperties[key] = await _prefs.getShapeProperty(shapeType, property, 8);
       }
     }
+    _fit = await _prefs.getFit();
     for (final tileType in ['properties', 'colors']) {
       _tileExpandeds[tileType] = await _prefs.getTileExpanded(tileType);
     }
