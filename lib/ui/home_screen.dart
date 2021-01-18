@@ -31,6 +31,15 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) => Consumer<PreferencesProvider>(
     builder: (context, prefs, _) {
+      final theme = Theme.of(context);
+      final checkerBoardColors = <Color>[];
+      checkerBoardColors.add(theme.scaffoldBackgroundColor);
+      if (theme.brightness == Brightness.dark) {
+        checkerBoardColors.add(checkerBoardColors[0].lighten(amount: 30));
+      } else {
+        checkerBoardColors.add(checkerBoardColors[0].darken(amount: 30));
+      }
+
       final selectedShapeType = prefs.selectedShapeType;
       final drawerChildren = <Widget>[];
 
@@ -93,6 +102,7 @@ class HomeScreen extends StatelessWidget {
                 width: maxWidth,
                 colors: prefs.colorSet,
                 shape: shape,
+                checkerBoardColors: checkerBoardColors,
               );
             }
           },

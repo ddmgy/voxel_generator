@@ -8,12 +8,14 @@ class SliceViewer extends StatelessWidget {
   final double width;
   final ColorSet colors;
   final Shape3d shape;
+  final List<Color> checkerBoardColors;
 
   SliceViewer({
     Key key,
     @required this.width,
     @required this.colors,
     @required this.shape,
+    @required this.checkerBoardColors,
   }) : super(key: key);
 
   @override
@@ -33,6 +35,7 @@ class SliceViewer extends StatelessWidget {
               painter: _SliceViewerPainter(
                 colors: colors,
                 slice: slices[index],
+                checkerBoardColors: checkerBoardColors,
               ),
               willChange: true,
               isComplex: false,
@@ -50,10 +53,12 @@ class SliceViewer extends StatelessWidget {
 class _SliceViewerPainter extends CustomPainter {
   final ColorSet colors;
   final List<List<bool>> slice;
+  final List<Color> checkerBoardColors;
 
   _SliceViewerPainter({
     @required this.colors,
     @required this.slice,
+    @required this.checkerBoardColors,
   });
 
   @override
@@ -64,9 +69,25 @@ class _SliceViewerPainter extends CustomPainter {
       for (var x = 0; x < slice[y].length; x++) {
         if (slice[y][x]) {
           _drawPixel(canvas, pixelSize, x, y);
+        } else {
+          _drawCheckerBoard(canvas, pixelSize, x, y);
         }
       }
     }
+  }
+
+  void _drawCheckerBoard(Canvas canvas, double pixelSize, int x, int y) {
+    final index = (x + y * slice[y].length + (y % 2 == 0 ? 1 : 0)) % checkerBoardColors.length;
+    final rect = Rect.fromLTWH(
+      x * pixelSize,
+      y * pixelSize + (pixelSize / 2),
+      pixelSize,
+      pixelSize,
+    );
+    final paint = Paint()
+      ..color = checkerBoardColors[index]
+      ..style = PaintingStyle.fill;
+    canvas.drawRect(rect, paint);
   }
 
   void _drawPixel(Canvas canvas, double pixelSize, int x, int y) {
