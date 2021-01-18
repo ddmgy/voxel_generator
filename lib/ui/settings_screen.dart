@@ -46,7 +46,7 @@ class SettingsScreen extends StatelessWidget {
           children: [
             Preference(
               title: 'Version',
-              summary: '0.1.2',
+              summary: '0.1.3',
               onTap: () {},
             ),
             Preference(
