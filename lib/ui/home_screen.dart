@@ -327,14 +327,14 @@ class HomeScreen extends StatelessWidget {
           ),
         ),
         actions: [
-          FlatButton(
+          TextButton(
             child: Text(
               'Cancel',
               style: context.subtitleTextStyle(),
             ),
             onPressed: () => Navigator.of(context).pop(null),
           ),
-          FlatButton(
+          TextButton(
             child: Text(
               'OK',
               style: context.subtitleTextStyle(),

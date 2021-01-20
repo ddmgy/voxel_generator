@@ -5,6 +5,7 @@ import 'package:provider/provider.dart';
 
 import 'package:voxel_generator/preference/preferences_helper.dart';
 import 'package:voxel_generator/preference/preferences_provider.dart';
+import 'package:voxel_generator/ui/changelog_screen.dart';
 import 'package:voxel_generator/ui/theme_type.dart';
 
 class SettingsScreen extends StatelessWidget {
@@ -48,6 +49,12 @@ class SettingsScreen extends StatelessWidget {
               title: 'Version',
               summary: '0.1.3',
               onTap: () {},
+            ),
+            Preference(
+              title: 'Changelog',
+              onTap: () => Navigator.of(context).push(MaterialPageRoute<void>(
+                builder: (_) => ChangelogScreen(),
+              )),
             ),
             Preference(
               title: 'Licenses',
