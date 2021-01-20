@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'package:voxel_generator/color_set.dart';
 import 'package:voxel_generator/shape/base.dart';
+import 'package:voxel_generator/utils.dart';
 import 'package:voxel_generator/voxel_renderer.dart';
 
 class SliceViewer extends StatelessWidget {
@@ -27,6 +28,7 @@ class SliceViewer extends StatelessWidget {
       child: ListView.separated(
         itemCount: slices.length,
         itemBuilder: (context, index) => Padding(
+          key: ValueKey(Pair(index, shape)),
           padding: const EdgeInsets.symmetric(vertical: 4),
           child: SizedBox(
             width: width,

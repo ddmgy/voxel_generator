@@ -2,6 +2,21 @@ import 'dart:math' as Math;
 
 import 'package:flutter/material.dart';
 
+class Pair<T, U> {
+  final T first;
+  final U last;
+
+  const Pair(this.first, this.last);
+
+  @override
+  bool operator ==(Object other) => other is Pair
+    && first == other.first
+    && last == other.last;
+
+  @override
+  int get hashCode => hashValues(first, last);
+}
+
 extension StringExtensions on String {
   String substringAfterLast(String s) => substring(lastIndexOf(s) + 1);
 
