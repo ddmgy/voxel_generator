@@ -37,7 +37,6 @@ class SettingsScreen extends StatelessWidget {
               leading: Icon(Icons.code),
               onLongPress: () {
                 provider.clearPreferences();
-                print('why you no work?');
               },
             ),
           ],
@@ -47,7 +46,7 @@ class SettingsScreen extends StatelessWidget {
           children: [
             Preference(
               title: 'Version',
-              summary: '0.1.3',
+              summary: '0.1.4',
               onTap: () {},
             ),
             Preference(
@@ -61,7 +60,7 @@ class SettingsScreen extends StatelessWidget {
               onTap: () => showLicensePage(
                 context: context,
                 applicationName: 'Voxel Generator',
-                applicationVersion: '0.1.1',
+                applicationVersion: '0.1.4',
                 applicationLegalese: '© 2021 David Mougey',
               ),
             ),

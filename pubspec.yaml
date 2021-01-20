@@ -1,7 +1,7 @@
 name: voxel_generator
 description: A voxel shape generator/viewer.
 author: "David Mougey <imapiekindaguy@gmail.com>"
-version: 0.1.3
+version: 0.1.4
 homepage: "https://github.com/ddmgy/voxel_generator"
 
 publish_to: 'none'
