@@ -1,11 +1,7 @@
 import 'package:voxel_generator/shape/base.dart';
+import 'package:voxel_generator/shape/shape_utils.dart';
 
 class Rectangle extends Shape3d {
-  double get top => -halfDepth;
-  double get bottom => halfDepth;
-  double get left => -halfWidth;
-  double get right => halfWidth;
-
   Rectangle({
     int width,
     int height,
@@ -16,8 +12,5 @@ class Rectangle extends Shape3d {
   );
 
   @override
-  bool contains(num x, num y, num z) => x >= left
-    && x <= right
-    && y >= top
-    && y <= bottom;
+  bool contains(num x, num y, num z) => ShapeUtils.pointInRectangle(x, y, width, depth);
 }

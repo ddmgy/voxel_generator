@@ -85,9 +85,11 @@ void main() {
   });
   test('cylinder', () {
     final cylinder = Cylinder(
-      diameter: 7,
+      width: 7,
+      depth: 7,
       height: 9,
     );
     expect(cylinder.contains(0, 0, 0), isTrue);
+    expect(cylinder.contains(3.5, 3.5, 4.5), isFalse);
   });
 }

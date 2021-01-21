@@ -5,8 +5,12 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and the project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## Unreleased
+### Added
+- Created utility class (ShapeUtils) to simplify checking if a point lies within a shape.
 ### Changed
 - Moved viewer options (viewer type and fit) to ExpansionTile, to better visually group related items.
+- Changed all Shape3d.contains overrides to use ShapeUtils methods.
+- Cylinder is no longer always a perfect circle along one axis. Width and depth can be defined, as with an ellipse.
 
 ## [0.1.4] - 2020-01-20
 ### Added

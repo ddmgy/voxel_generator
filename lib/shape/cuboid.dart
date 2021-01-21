@@ -1,13 +1,7 @@
 import 'package:voxel_generator/shape/base.dart';
+import 'package:voxel_generator/shape/shape_utils.dart';
 
 class Cuboid extends Shape3d {
-  double get top => -halfHeight;
-  double get bottom => halfHeight;
-  double get left => -halfWidth;
-  double get right => halfWidth;
-  double get front => -halfDepth;
-  double get back => halfDepth;
-
   Cuboid({
     int width,
     int depth,
@@ -19,10 +13,5 @@ class Cuboid extends Shape3d {
   );
 
   @override
-  bool contains(num x, num y, num z) => x >= left
-   && x <= right
-   && z >= top
-   && z <= bottom
-   && y >= front
-   && y <= back;
+  bool contains(num x, num y, num z) => ShapeUtils.pointInCuboid(x, y, z, width, depth, height);
 }
