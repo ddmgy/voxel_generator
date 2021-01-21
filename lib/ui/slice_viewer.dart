@@ -56,19 +56,21 @@ class _SliceViewerPainter extends CustomPainter {
   final ColorSet colors;
   final List<List<bool>> slice;
   final List<Color> checkerBoardColors;
+  final int _width;
+  final int _height;
 
   _SliceViewerPainter({
     @required this.colors,
     @required this.slice,
     @required this.checkerBoardColors,
-  });
+  }) : _width = slice[0].length, _height = slice.length;
 
   @override
   void paint(Canvas canvas, Size size) {
-    final pixelSize = size.width / slice[0].length;
+    final pixelSize = size.width / _width;
 
-    for (var y = 0; y < slice.length; y++) {
-      for (var x = 0; x < slice[y].length; x++) {
+    for (var y = 0; y < _height; y++) {
+      for (var x = 0; x < _width; x++) {
         if (slice[y][x]) {
           _drawPixel(canvas, pixelSize, x, y);
         } else {
@@ -79,7 +81,7 @@ class _SliceViewerPainter extends CustomPainter {
   }
 
   void _drawCheckerBoard(Canvas canvas, double pixelSize, int x, int y) {
-    final index = (x + y * slice[y].length + (y % 2 == 0 ? 1 : 0)) % checkerBoardColors.length;
+    final index = (x + y * _width + (_width % 2 == 0 && y % 2 == 0 ? 1 : 0)) % checkerBoardColors.length;
     final rect = Rect.fromLTWH(
       x * pixelSize,
       y * pixelSize + (pixelSize / 2),

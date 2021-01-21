@@ -13,6 +13,8 @@ and the project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.
 - Moved viewer options (viewer type and fit) to ExpansionTile, to better visually group related items.
 - Changed all Shape3d.contains overrides to use ShapeUtils methods.
 - Cylinder is no longer always a perfect circle along one axis. Width and depth can be defined, as with an ellipse.
+### Fixed
+- Fix checkerboard pattern in SliceViewer resolving to vertical lines of the same color for certain combinations of width and height.
 
 ## [0.1.4] - 2020-01-20
 ### Added
