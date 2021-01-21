@@ -5,6 +5,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and the project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## Unreleased
+
+## [0.1.5] - 2020-01-21
 ### Added
 - Created utility class (ShapeUtils) to simplify checking if a point lies within a shape.
 - Add Capsule shape (cylinder with hemispheres on either end).
