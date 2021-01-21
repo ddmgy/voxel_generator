@@ -17,7 +17,7 @@ class ViewerTypeButton extends StatelessWidget {
         color: context.iconColor(),
       ),
       title: Text(
-        "Viewer",
+        "Viewer type",
         style: context.titleTextStyle(),
       ),
       trailing: DropdownButton<ViewerType>(

@@ -8,3 +8,12 @@ pubspec.lock
 doc/api/
 .vscode/
 *.iml
+
+# Ignore generated plugin files
+**/generated_plugin_registrant.dart
+**/ios/**/GeneratedPluginRegistrant.*
+**/linux/**/generated_plugin_registrant.cc
+**/linux/**/generated_plugins.cmake
+**/macos/**/GeneratedPluginRegistrant.swift
+**/windows/**/generated_plugin_registrant.cc
+**/windows/**/generated_plugins.cmake

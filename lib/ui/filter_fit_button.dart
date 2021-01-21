@@ -12,10 +12,6 @@ class FilterFitButton extends StatelessWidget {
     final fit = context.select((PreferencesProvider provider) => provider.fit);
 
     return ListTile(
-      leading: Icon(
-        Icons.filter_center_focus,
-        color: context.iconColor(),
-      ),
       title: Text(
         "Fit",
         style: context.titleTextStyle(),

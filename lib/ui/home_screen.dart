@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'package:flutter_colorpicker/flutter_colorpicker.dart';
 import 'package:provider/provider.dart';
+import 'package:voxel_generator/option_tile_type.dart';
 
 import 'package:voxel_generator/preference/preferences_provider.dart';
 import 'package:voxel_generator/shape_properties.dart';
@@ -113,14 +114,28 @@ class HomeScreen extends StatelessWidget {
 
   Widget _getEndDrawerForShapeType(BuildContext context, ShapeType shapeType) {
     final prefs = Provider.of<PreferencesProvider>(context, listen: false);
+    final children = <Widget>[];
 
-    final children = <Widget>[
+    final viewerOptions = <Widget>[
       ViewerTypeButton(),
+      if (prefs.viewerType == ViewerType.Voxel) FilterFitButton(),
     ];
 
-    if (prefs.viewerType == ViewerType.Voxel) {
-      children.add(FilterFitButton());
-    }
+    final viewerOptionsTile = ExpansionTile(
+      leading: Icon(
+        Icons.view_in_ar,
+        color: context.iconColor(),
+      ),
+      title: Text(
+        'Viewer',
+      ),
+      children: viewerOptions,
+      initiallyExpanded: prefs.getTileExpanded(OptionTileType.viewerOptions),
+      onExpansionChanged: (bool expanded) {
+        prefs.setTileExpanded(OptionTileType.viewerOptions, expanded);
+      },
+    );
+    children.add(viewerOptionsTile);
 
     final properties = <Widget>[];
     if (shapeType == ShapeType.Circle) {
@@ -159,9 +174,9 @@ class HomeScreen extends StatelessWidget {
         style: context.titleTextStyle(),
       ),
       children: properties,
-      initiallyExpanded: prefs.getTileExpanded('properties'),
+      initiallyExpanded: prefs.getTileExpanded(OptionTileType.properties),
       onExpansionChanged: (bool expanded) {
-        prefs.setTileExpanded('properties', expanded);
+        prefs.setTileExpanded(OptionTileType.properties, expanded);
       },
     );
     children.add(propertiesTile);
@@ -237,9 +252,9 @@ class HomeScreen extends StatelessWidget {
         style: context.titleTextStyle(),
       ),
       children: colorPreferences,
-      initiallyExpanded: prefs.getTileExpanded('colors'),
+      initiallyExpanded: prefs.getTileExpanded(OptionTileType.colors),
       onExpansionChanged: (bool expanded) {
-        prefs.setTileExpanded('colors', expanded);
+        prefs.setTileExpanded(OptionTileType.colors, expanded);
       },
     );
     children.add(colorPreferencesTile);

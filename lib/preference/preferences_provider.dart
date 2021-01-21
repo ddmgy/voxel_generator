@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:voxel_generator/color_set.dart';
+import 'package:voxel_generator/option_tile_type.dart';
 import 'package:voxel_generator/preference/preferences_helper.dart';
 import 'package:voxel_generator/shape_properties.dart';
 import 'package:voxel_generator/shape_type.dart';
@@ -194,7 +195,7 @@ class PreferencesProvider extends ChangeNotifier {
       }
     }
     _fit = await _prefs.getFit();
-    for (final tileType in ['properties', 'colors']) {
+    for (final tileType in OptionTileType.all) {
       _tileExpandeds[tileType] = await _prefs.getTileExpanded(tileType);
     }
     _rightFaceColor = await _prefs.getRightFaceColor();
