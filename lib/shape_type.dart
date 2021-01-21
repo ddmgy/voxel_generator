@@ -1,6 +1,7 @@
 import 'package:voxel_generator/utils.dart';
 
 enum ShapeType {
+  Capsule,
   Circle,
   Cube,
   Cuboid,
@@ -10,6 +11,7 @@ enum ShapeType {
   Rectangle,
   Sphere,
   Square,
+  Stadium,
 }
 
 extension ShapeTypeExtensions on ShapeType {

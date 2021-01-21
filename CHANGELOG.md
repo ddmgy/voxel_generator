@@ -7,6 +7,8 @@ and the project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.
 ## Unreleased
 ### Added
 - Created utility class (ShapeUtils) to simplify checking if a point lies within a shape.
+- Add Capsule shape (cylinder with hemispheres on either end).
+- Add stadium shape (rectangle with semicircles on either end).
 ### Changed
 - Moved viewer options (viewer type and fit) to ExpansionTile, to better visually group related items.
 - Changed all Shape3d.contains overrides to use ShapeUtils methods.

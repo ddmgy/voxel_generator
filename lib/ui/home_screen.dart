@@ -5,6 +5,8 @@ import 'package:provider/provider.dart';
 import 'package:voxel_generator/option_tile_type.dart';
 
 import 'package:voxel_generator/preference/preferences_provider.dart';
+import 'package:voxel_generator/shape/capsule.dart';
+import 'package:voxel_generator/shape/stadium.dart';
 import 'package:voxel_generator/shape_properties.dart';
 import 'package:voxel_generator/shape_type.dart';
 import 'package:voxel_generator/shape/base.dart';
@@ -138,7 +140,10 @@ class HomeScreen extends StatelessWidget {
     children.add(viewerOptionsTile);
 
     final properties = <Widget>[];
-    if (shapeType == ShapeType.Circle) {
+    if (shapeType == ShapeType.Capsule) {
+      properties.add(PropertySideLengthButton(shapeType: shapeType));
+      properties.add(PropertyDiameterButton(shapeType: shapeType));
+    } else if (shapeType == ShapeType.Circle) {
       properties.add(PropertyDiameterButton(shapeType: shapeType));
     } else if (shapeType == ShapeType.Cube) {
       properties.add(PropertySideLengthButton(shapeType: shapeType));
@@ -147,7 +152,8 @@ class HomeScreen extends StatelessWidget {
       properties.add(PropertyDepthButton(shapeType: shapeType));
       properties.add(PropertyHeightButton(shapeType: shapeType));
     } else if (shapeType == ShapeType.Cylinder) {
-      properties.add(PropertyDiameterButton(shapeType: shapeType));
+      properties.add(PropertyWidthButton(shapeType: shapeType));
+      properties.add(PropertyDepthButton(shapeType: shapeType));
       properties.add(PropertyHeightButton(shapeType: shapeType));
     } else if (shapeType == ShapeType.Ellipse) {
       properties.add(PropertyWidthButton(shapeType: shapeType));
@@ -163,6 +169,9 @@ class HomeScreen extends StatelessWidget {
       properties.add(PropertyDiameterButton(shapeType: shapeType));
     } else if (shapeType == ShapeType.Square) {
       properties.add(PropertySideLengthButton(shapeType: shapeType));
+    } else if (shapeType == ShapeType.Stadium) {
+      properties.add(PropertySideLengthButton(shapeType: shapeType));
+      properties.add(PropertyDiameterButton(shapeType: shapeType));
     }
     final propertiesTile = ExpansionTile(
       leading: Icon(
@@ -267,7 +276,12 @@ class HomeScreen extends StatelessWidget {
   Shape3d _getShapeForShapeType(BuildContext context, ShapeType shapeType) {
     final prefs = Provider.of<PreferencesProvider>(context, listen: false);
 
-    if (shapeType == ShapeType.Circle) {
+    if (shapeType == ShapeType.Capsule) {
+      return Capsule(
+        sideLength: prefs.getShapeProperty(shapeType, ShapeProperties.sideLength, 8),
+        diameter: prefs.getShapeProperty(shapeType, ShapeProperties.diameter, 8),
+      );
+    } else if (shapeType == ShapeType.Circle) {
       return Circle(
         diameter: prefs.getShapeProperty(shapeType, ShapeProperties.diameter, 8),
       );
@@ -283,7 +297,8 @@ class HomeScreen extends StatelessWidget {
       );
     } else if (shapeType == ShapeType.Cylinder) {
       return Cylinder(
-        diameter: prefs.getShapeProperty(shapeType, ShapeProperties.diameter, 8),
+        width: prefs.getShapeProperty(shapeType, ShapeProperties.width, 8),
+        depth: prefs.getShapeProperty(shapeType, ShapeProperties.depth, 8),
         height: prefs.getShapeProperty(shapeType, ShapeProperties.height, 8),
       );
     } else if (shapeType == ShapeType.Ellipse) {
@@ -309,6 +324,11 @@ class HomeScreen extends StatelessWidget {
     } else if (shapeType == ShapeType.Square) {
       return Square(
         sideLength: prefs.getShapeProperty(shapeType, ShapeProperties.sideLength, 8),
+      );
+    } else if (shapeType == ShapeType.Stadium) {
+      return Stadium(
+        sideLength: prefs.getShapeProperty(shapeType, ShapeProperties.sideLength, 8),
+        diameter: prefs.getShapeProperty(shapeType, ShapeProperties.diameter, 8),
       );
     }
     throw Exception('unreachable');
