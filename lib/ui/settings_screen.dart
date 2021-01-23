@@ -46,7 +46,7 @@ class SettingsScreen extends StatelessWidget {
           children: [
             Preference(
               title: 'Version',
-              summary: '0.1.5',
+              summary: '0.1.6',
               onTap: () {},
             ),
             Preference(
@@ -60,7 +60,7 @@ class SettingsScreen extends StatelessWidget {
               onTap: () => showLicensePage(
                 context: context,
                 applicationName: 'Voxel Generator',
-                applicationVersion: '0.1.5',
+                applicationVersion: '0.1.6',
                 applicationLegalese: '© 2021 David Mougey',
               ),
             ),
