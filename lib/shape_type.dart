@@ -12,10 +12,19 @@ enum ShapeType {
   Sphere,
   Square,
   Stadium,
+  Triangle,
+  Triangle_right,
 }
 
 extension ShapeTypeExtensions on ShapeType {
-  String getName() => toString().substringAfterLast('.');
+  String getName() {
+    final name = toString().substringAfterLast('.');
+    if (!name.contains('_')) {
+      return name;
+    }
+    final split = name.split('_').toList();
+    return '${split.first} (${split.skip(1).join(' ')})';
+  }
 
   int toInt() => index;
 }

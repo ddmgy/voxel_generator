@@ -1,5 +1,11 @@
 import 'dart:math' as Math;
 
+import 'package:voxel_generator/shape/base.dart';
+
+extension Point2dExtensions on Point2d {
+  double sign(Point2d v1, Point2d v2) => (x - v2.x) * (v1.y - v2.y) - (v1.x - v2.x) * (y - v2.y);
+}
+
 /// Utility class to test if point lies inside of shapes.
 /// All shapes are assumed to be centered at the 2D origin (0, 0) or 3D origin (0, 0, 0).
 class ShapeUtils {
@@ -73,5 +79,18 @@ class ShapeUtils {
     }
     return pointInSphere(x - halfSideLength, y, z, diameter) ||
       pointInSphere(x + halfSideLength, y, z, diameter);
+  }
+
+  /// Checks if point at (x, y) is in triangle defined by points p1, p2, and p3.
+  static bool pointInTriangle(num x, num y, Point2d p1, Point2d p2, Point2d p3) {
+    final p = Point2d(x, y);
+    final signs = [
+      p.sign(p1, p2),
+      p.sign(p2, p3),
+      p.sign(p3, p1),
+    ];
+    final hasNegative = signs.any((s) => s < 0);
+    final hasPositive = signs.any((s) => s > 0);
+    return !(hasNegative && hasPositive);
   }
 }

@@ -5,20 +5,9 @@ import 'package:provider/provider.dart';
 import 'package:voxel_generator/option_tile_type.dart';
 
 import 'package:voxel_generator/preference/preferences_provider.dart';
-import 'package:voxel_generator/shape/capsule.dart';
-import 'package:voxel_generator/shape/stadium.dart';
+import 'package:voxel_generator/shape/shape.dart';
 import 'package:voxel_generator/shape_properties.dart';
 import 'package:voxel_generator/shape_type.dart';
-import 'package:voxel_generator/shape/base.dart';
-import 'package:voxel_generator/shape/circle.dart';
-import 'package:voxel_generator/shape/cube.dart';
-import 'package:voxel_generator/shape/cuboid.dart';
-import 'package:voxel_generator/shape/cylinder.dart';
-import 'package:voxel_generator/shape/ellipse.dart';
-import 'package:voxel_generator/shape/ellipsoid.dart';
-import 'package:voxel_generator/shape/rectangle.dart';
-import 'package:voxel_generator/shape/sphere.dart';
-import 'package:voxel_generator/shape/square.dart';
 import 'package:voxel_generator/ui/filter_fit_button.dart';
 import 'package:voxel_generator/ui/property_button.dart';
 import 'package:voxel_generator/ui/routes.dart';
@@ -172,6 +161,12 @@ class HomeScreen extends StatelessWidget {
     } else if (shapeType == ShapeType.Stadium) {
       properties.add(PropertySideLengthButton(shapeType: shapeType));
       properties.add(PropertyDiameterButton(shapeType: shapeType));
+    } else if (shapeType == ShapeType.Triangle) {
+      properties.add(PropertyWidthButton(shapeType: shapeType));
+      properties.add(PropertyHeightButton(shapeType: shapeType));
+    } else if (shapeType == ShapeType.Triangle_right) {
+      properties.add(PropertyWidthButton(shapeType: shapeType));
+      properties.add(PropertyHeightButton(shapeType: shapeType));
     }
     final propertiesTile = ExpansionTile(
       leading: Icon(
@@ -329,6 +324,16 @@ class HomeScreen extends StatelessWidget {
       return Stadium(
         sideLength: prefs.getShapeProperty(shapeType, ShapeProperties.sideLength, 8),
         diameter: prefs.getShapeProperty(shapeType, ShapeProperties.diameter, 8),
+      );
+    } else if (shapeType == ShapeType.Triangle) {
+      return Triangle(
+        width: prefs.getShapeProperty(shapeType, ShapeProperties.width, 8),
+        height: prefs.getShapeProperty(shapeType, ShapeProperties.height, 8),
+      );
+    } else if (shapeType == ShapeType.Triangle_right) {
+      return TriangleRight(
+        width: prefs.getShapeProperty(shapeType, ShapeProperties.width, 8),
+        height: prefs.getShapeProperty(shapeType, ShapeProperties.height, 8),
       );
     }
     throw Exception('unreachable');
