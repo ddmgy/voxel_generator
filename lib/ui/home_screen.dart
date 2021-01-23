@@ -151,6 +151,10 @@ class HomeScreen extends StatelessWidget {
       properties.add(PropertyWidthButton(shapeType: shapeType));
       properties.add(PropertyDepthButton(shapeType: shapeType));
       properties.add(PropertyHeightButton(shapeType: shapeType));
+    } else if (shapeType == ShapeType.Pyramid) {
+      properties.add(PropertyWidthButton(shapeType: shapeType));
+      properties.add(PropertyDepthButton(shapeType: shapeType));
+      properties.add(PropertyHeightButton(shapeType: shapeType));
     } else if (shapeType == ShapeType.Rectangle) {
       properties.add(PropertyWidthButton(shapeType: shapeType));
       properties.add(PropertyHeightButton(shapeType: shapeType));
@@ -303,6 +307,12 @@ class HomeScreen extends StatelessWidget {
       );
     } else if (shapeType == ShapeType.Ellipsoid) {
       return Ellipsoid(
+        width: prefs.getShapeProperty(shapeType, ShapeProperties.width, 8),
+        depth: prefs.getShapeProperty(shapeType, ShapeProperties.depth, 8),
+        height: prefs.getShapeProperty(shapeType, ShapeProperties.height, 8),
+      );
+    } else if (shapeType == ShapeType.Pyramid) {
+      return Pyramid(
         width: prefs.getShapeProperty(shapeType, ShapeProperties.width, 8),
         depth: prefs.getShapeProperty(shapeType, ShapeProperties.depth, 8),
         height: prefs.getShapeProperty(shapeType, ShapeProperties.height, 8),

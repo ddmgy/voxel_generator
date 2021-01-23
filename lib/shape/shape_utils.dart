@@ -1,10 +1,7 @@
 import 'dart:math' as Math;
 
 import 'package:voxel_generator/shape/base.dart';
-
-extension Point2dExtensions on Point2d {
-  double sign(Point2d v1, Point2d v2) => (x - v2.x) * (v1.y - v2.y) - (v1.x - v2.x) * (y - v2.y);
-}
+import 'package:voxel_generator/utils.dart';
 
 /// Utility class to test if point lies inside of shapes.
 /// All shapes are assumed to be centered at the 2D origin (0, 0) or 3D origin (0, 0, 0).
@@ -92,5 +89,13 @@ class ShapeUtils {
     final hasNegative = signs.any((s) => s < 0);
     final hasPositive = signs.any((s) => s > 0);
     return !(hasNegative && hasPositive);
+  }
+
+  /// Checks if point at (x, y, z) lies between all given planes.
+  static bool pointBetweenPlanes(num x, num y, num z, List<Plane> planes) {
+    final point = Point3d(x, y, z);
+    return planes
+      .map((p) => p.distanceFromPoint(point))
+      .all((d) => d > 0);
   }
 }

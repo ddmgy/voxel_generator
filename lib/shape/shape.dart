@@ -6,6 +6,7 @@ export 'cuboid.dart';
 export 'cylinder.dart';
 export 'ellipse.dart';
 export 'ellipsoid.dart';
+export 'pyramid.dart';
 export 'rectangle.dart';
 export 'sphere.dart';
 export 'square.dart';

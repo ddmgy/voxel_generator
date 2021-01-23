@@ -8,6 +8,7 @@ enum ShapeType {
   Cylinder,
   Ellipse,
   Ellipsoid,
+  Pyramid,
   Rectangle,
   Sphere,
   Square,

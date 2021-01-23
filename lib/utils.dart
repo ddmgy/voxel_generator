@@ -27,6 +27,17 @@ extension NumIterableExtensions<T extends num> on Iterable<T> {
   T min() => reduce((a, b) => Math.min(a, b));
 }
 
+extension IterableExtensions<T> on Iterable<T> {
+  bool all(bool Function(T element) test) {
+    for (T element in this) {
+      if (!test(element)) {
+        return false;
+      }
+    }
+    return true;
+  }
+}
+
 // lighten and darken methods copied from [tinycolor package](https://github.com/FooStudio/tinycolor/blob/master/lib/tinycolor.dart)
 extension ColorExtensions on Color {
   Color lighten({int amount: 10}) => _alter(amount: amount);

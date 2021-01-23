@@ -6,6 +6,11 @@ and the project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.
 
 ## Unreleased
 ### Added
+- Add Pyramid shape.
+
+
+## [0.1.6] - 2020-01-23
+### Added
 - Add Triangle shape.
 - Add Right Triangle shape.
 

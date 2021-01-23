@@ -24,7 +24,7 @@ class VoxelRenderer {
         }
         slice.add(row);
       }
-      ret.add(slice);
+      ret.insert(0, slice);
     }
 
     return ret;
