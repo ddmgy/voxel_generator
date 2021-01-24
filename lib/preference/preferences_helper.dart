@@ -163,4 +163,6 @@ class PreferenceValues {
 // List of names of values that can be stored in SharedPreferences
 class PreferenceEntries {
   static List<String> get themes => PreferenceValues.themes.map((themeType) => themeType.getName()).toList();
+
+  static List<String> get fits => ['Fit width', 'Fit height', 'Contain'];
 }

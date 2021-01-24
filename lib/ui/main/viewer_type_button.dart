@@ -12,10 +12,6 @@ class ViewerTypeButton extends StatelessWidget {
     final viewerType = context.select((PreferencesProvider provider) => provider.viewerType);
 
     return ListTile(
-      leading: Icon(
-        Icons.view_in_ar,
-        color: context.iconColor(),
-      ),
       title: Text(
         "Viewer type",
         style: context.titleTextStyle(),

@@ -19,17 +19,17 @@ class FilterFitButton extends StatelessWidget {
       trailing: DropdownButton<BoxFit>(
         value: fit,
         onChanged: (BoxFit value) => Provider.of<PreferencesProvider>(context, listen: false).fit = value,
-        items: PreferenceValues.fits.map((boxFit) => DropdownMenuItem<BoxFit>(
-          value: boxFit,
+        items: List.generate(PreferenceValues.fits.length, (i) => DropdownMenuItem<BoxFit>(
+          value: PreferenceValues.fits[i],
           child: Text(
-            boxFit.getName(),
+            PreferenceEntries.fits[i],
             style: context.subtitleTextStyle(),
           ),
-        )).toList(),
-        selectedItemBuilder: (context) => PreferenceValues.fits.map((boxFit) => Align(
+        )),
+        selectedItemBuilder: (context) => PreferenceEntries.fits.map((boxFit) => Align(
           alignment: Alignment.center,
           child: Text(
-            boxFit.getName(),
+            boxFit,
             style: context.subtitleTextStyle(),
           ),
         )).toList(),
