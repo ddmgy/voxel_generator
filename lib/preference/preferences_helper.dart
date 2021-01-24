@@ -2,10 +2,10 @@ import 'package:flutter/painting.dart';
 
 import 'package:shared_preferences/shared_preferences.dart';
 
-import 'package:voxel_generator/shape_type.dart';
+import 'package:voxel_generator/ui/shape_type.dart';
 import 'package:voxel_generator/ui/theme_type.dart';
 import 'package:voxel_generator/utils.dart';
-import 'package:voxel_generator/viewer_type.dart';
+import 'package:voxel_generator/ui/viewer_type.dart';
 
 class PreferencesHelper {
   static final PreferencesHelper instance = PreferencesHelper._();

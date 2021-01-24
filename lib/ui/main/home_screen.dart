@@ -2,20 +2,20 @@ import 'package:flutter/material.dart';
 
 import 'package:flutter_colorpicker/flutter_colorpicker.dart';
 import 'package:provider/provider.dart';
-import 'package:voxel_generator/option_tile_type.dart';
 
+import 'package:voxel_generator/ui/option_tile_type.dart';
 import 'package:voxel_generator/preference/preferences_provider.dart';
 import 'package:voxel_generator/shape/shape.dart';
-import 'package:voxel_generator/shape_properties.dart';
-import 'package:voxel_generator/shape_type.dart';
-import 'package:voxel_generator/ui/filter_fit_button.dart';
-import 'package:voxel_generator/ui/property_button.dart';
+import 'package:voxel_generator/ui/main/filter_fit_button.dart';
+import 'package:voxel_generator/ui/main/property_button.dart';
+import 'package:voxel_generator/ui/main/viewer_type_button.dart';
 import 'package:voxel_generator/ui/routes.dart';
-import 'package:voxel_generator/ui/slice_viewer.dart';
-import 'package:voxel_generator/ui/viewer_type_button.dart';
-import 'package:voxel_generator/ui/voxel_viewer.dart';
+import 'package:voxel_generator/ui/shape_properties.dart';
+import 'package:voxel_generator/ui/shape_type.dart';
+import 'package:voxel_generator/ui/viewer_type.dart';
+import 'package:voxel_generator/ui/viewer/slice_viewer.dart';
+import 'package:voxel_generator/ui/viewer/voxel_viewer.dart';
 import 'package:voxel_generator/utils.dart';
-import 'package:voxel_generator/viewer_type.dart';
 
 typedef ColorPreferenceSetter = Function(Color newColor);
 

@@ -3,9 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import 'package:voxel_generator/preference/preferences_provider.dart';
-import 'package:voxel_generator/ui/home_screen.dart';
+import 'package:voxel_generator/ui/main/home_screen.dart';
 import 'package:voxel_generator/ui/routes.dart';
-import 'package:voxel_generator/ui/settings_screen.dart';
+import 'package:voxel_generator/ui/setting/settings_screen.dart';
 
 void main() {
   runApp(

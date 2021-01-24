@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
-import 'package:voxel_generator/color_set.dart';
+import 'package:voxel_generator/ui/color_set.dart';
 import 'package:voxel_generator/shape/base.dart';
 import 'package:voxel_generator/utils.dart';
-import 'package:voxel_generator/voxel_renderer.dart';
+import 'package:voxel_generator/ui/voxel_renderer.dart';
 
 class SliceViewer extends StatelessWidget {
   final double width;

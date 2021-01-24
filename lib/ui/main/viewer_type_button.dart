@@ -4,7 +4,7 @@ import 'package:provider/provider.dart';
 
 import 'package:voxel_generator/preference/preferences_provider.dart';
 import 'package:voxel_generator/utils.dart';
-import 'package:voxel_generator/viewer_type.dart';
+import 'package:voxel_generator/ui/viewer_type.dart';
 
 class ViewerTypeButton extends StatelessWidget {
   @override

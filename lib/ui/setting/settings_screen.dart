@@ -5,7 +5,7 @@ import 'package:provider/provider.dart';
 
 import 'package:voxel_generator/preference/preferences_helper.dart';
 import 'package:voxel_generator/preference/preferences_provider.dart';
-import 'package:voxel_generator/ui/changelog_screen.dart';
+import 'package:voxel_generator/ui/setting/changelog_screen.dart';
 import 'package:voxel_generator/ui/theme_type.dart';
 
 class SettingsScreen extends StatelessWidget {

@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 
-import 'package:voxel_generator/color_set.dart';
-import 'package:voxel_generator/option_tile_type.dart';
+import 'package:voxel_generator/ui/color_set.dart';
+import 'package:voxel_generator/ui/option_tile_type.dart';
 import 'package:voxel_generator/preference/preferences_helper.dart';
-import 'package:voxel_generator/shape_properties.dart';
-import 'package:voxel_generator/shape_type.dart';
+import 'package:voxel_generator/ui/shape_properties.dart';
+import 'package:voxel_generator/ui/shape_type.dart';
 import 'package:voxel_generator/ui/theme_type.dart';
-import 'package:voxel_generator/viewer_type.dart';
+import 'package:voxel_generator/ui/viewer_type.dart';
 
 // TODO: Customize dark theme
 ThemeData _darkTheme = ThemeData(
